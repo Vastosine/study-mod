@@ -1,9 +1,11 @@
 package com.vas.study.datagen;
 
+import com.vas.study.block.ModBlocks;
 import com.vas.study.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -13,8 +15,11 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.@NonNull Provider registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModItems.STUDY_ITEM, "Study Item");
+        translationBuilder.add(ModItems.OBSIDIAN_INGOT, "Obsidian Ingot");
         translationBuilder.add(ModItems.OBSIDIAN_APPLE, "Obsidian Apple");
+        translationBuilder.add("itemGroup.study", "Study");
+        translationBuilder.add(ModBlocks.OBSIDIAN_BLOCK, "Obsidian Block");
     }
 }

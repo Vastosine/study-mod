@@ -1,5 +1,6 @@
 package com.vas.study;
 
+import com.vas.study.block.ModBlocks;
 import com.vas.study.item.ModCreativeModeTabs;
 import com.vas.study.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -27,13 +28,14 @@ public class MyStudyMod implements ModInitializer {
 
 		ModItems.onInitialize();
 		ModCreativeModeTabs.onInitialize();
+		ModBlocks.onInitialize();
 	}
 
-	public static Identifier withMODID(String name) {
+	public static Identifier withMODID(final String name) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, name);
 	}
 
-	public static Identifier id(String path) {
-		return Identifier.fromNamespaceAndPath(MOD_ID, path);
-	}
+//	public static Identifier id(String path) {
+//		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+//	}
 }

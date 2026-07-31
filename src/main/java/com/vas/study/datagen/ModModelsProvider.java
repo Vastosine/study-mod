@@ -1,5 +1,6 @@
 package com.vas.study.datagen;
 
+import com.vas.study.block.ModBlocks;
 import com.vas.study.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -14,12 +15,13 @@ public class ModModelsProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
-
+        blockModelGenerators.createTrivialCube(ModBlocks.OBSIDIAN_BLOCK);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.STUDY_ITEM, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_INGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_APPLE, ModelTemplates.FLAT_ITEM);
     }
 }

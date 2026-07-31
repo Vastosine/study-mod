@@ -1,10 +1,10 @@
 package com.vas.study.item;
 
 import com.vas.study.MyStudyMod;
+import com.vas.study.block.ModBlocks;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -23,7 +23,9 @@ public class ModCreativeModeTabs {
             .title(Component.translatable("itemGroup.study"))
             .displayItems((parameters, output) -> {
                 output.accept(ModItems.STUDY_ITEM);
+                output.accept(ModItems.OBSIDIAN_INGOT);
                 output.accept(ModItems.OBSIDIAN_APPLE);
+                output.accept(ModBlocks.OBSIDIAN_BLOCK);
             }).build();
 
     public static void onInitialize() {

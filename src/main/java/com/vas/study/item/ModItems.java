@@ -1,16 +1,12 @@
 package com.vas.study.item;
 
 import com.vas.study.MyStudyMod;
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTabOutput;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 
 import java.util.function.Function;
@@ -20,6 +16,7 @@ public class ModItems {
     public static final String MOD_ID = MyStudyMod.MOD_ID;
     public static final Logger LOGGER = MyStudyMod.LOGGER;
     public static final Item STUDY_ITEM = regitsterItem("study_item");
+    public static final Item OBSIDIAN_INGOT = regitsterItem("obsidian_ingot");
     public static final Item OBSIDIAN_APPLE = regitsterItem("obsidian_apple", new Item.Properties().food(ModFoods.OBSIDIAN_APPLE, ModConsumables.OBSIDIAN_APPLE));
 
     private static Item registerItem(final String name, final Function<Item.Properties, Item> itemFactory, final Item.Properties properties) {
