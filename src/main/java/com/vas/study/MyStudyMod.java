@@ -1,5 +1,7 @@
 package com.vas.study;
 
+import com.vas.study.item.ModCreativeModeTabs;
+import com.vas.study.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.Identifier;
@@ -22,6 +24,13 @@ public class MyStudyMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+
+		ModItems.onInitialize();
+		ModCreativeModeTabs.onInitialize();
+	}
+
+	public static Identifier withMODID(String name) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, name);
 	}
 
 	public static Identifier id(String path) {

@@ -3,13 +3,13 @@
 	"id": "study",
 	"version": "${version}",
 	"name": "My Study Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A Mod for study Modding",
 	"authors": [
-		"Me!"
+		"Vastosine"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/Vastosine/study-mod",
+		"sources": "https://github.com/Vastosine/study-mod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/study/icon.png",
@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"com.vas.study.MyStudyModDataGenerator"
+		],
+		"client": [
+			"com.vas.study.MyStudyModClient"
 		]
 	},
 	"mixins": [
