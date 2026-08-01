@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "study:obsidian_ingot",
+    "*": "minecraft:apple"
+  },
+  "pattern": [
+    " # ",
+    "#*#",
+    " # "
+  ],
+  "result": {
+    "id": "study:obsidian_apple"
+  }
+}
