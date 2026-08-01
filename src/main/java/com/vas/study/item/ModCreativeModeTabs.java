@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.OBSIDIAN_INGOT);
                 output.accept(ModItems.OBSIDIAN_APPLE);
                 output.accept(ModBlocks.OBSIDIAN_BLOCK);
+                output.accept(ModItems.REINFORCED_OBSIDIAN_APPLE);
             }).build();
 
     public static void onInitialize() {

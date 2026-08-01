@@ -2,6 +2,7 @@ package com.vas.study.item;
 
 import com.vas.study.MyStudyMod;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -18,6 +19,12 @@ public class ModItems {
     public static final Item STUDY_ITEM = regitsterItem("study_item");
     public static final Item OBSIDIAN_INGOT = regitsterItem("obsidian_ingot");
     public static final Item OBSIDIAN_APPLE = regitsterItem("obsidian_apple", new Item.Properties().food(ModFoods.OBSIDIAN_APPLE, ModConsumables.OBSIDIAN_APPLE));
+    public static final Item REINFORCED_OBSIDIAN_APPLE = regitsterItem(
+            "reinforced_obsidian_apple",
+            new Item.Properties()
+                    .food(ModFoods.REINFORCED_OBSIDIAN_APPLE, ModConsumables.REINFORCED_OBSIDIAN_APPLE)
+                    .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
+    );
 
     private static Item registerItem(final String name, final Function<Item.Properties, Item> itemFactory, final Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, MyStudyMod.withMODID(name));
@@ -42,13 +49,5 @@ public class ModItems {
 
     public static void onInitialize() {
         LOGGER.info("Items has been registered for " + MOD_ID);
-//        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
-//                .register(fabricCreativeModeTabOutput -> {
-//                    fabricCreativeModeTabOutput.accept(STUDY_ITEM);
-//                });
-//        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS)
-//                .register(fabricCreativeModeTabOutput -> {
-//                    fabricCreativeModeTabOutput.accept(OBSIDIAN_APPLE);
-//                });
     }
 }

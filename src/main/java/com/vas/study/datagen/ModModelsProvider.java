@@ -6,7 +6,10 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ItemModelUtils;
+import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
 
 public class ModModelsProvider extends FabricModelProvider {
     public ModModelsProvider(FabricPackOutput output) {
@@ -23,5 +26,15 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.STUDY_ITEM, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_INGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_APPLE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.itemModelOutput.accept(
+                ModItems.REINFORCED_OBSIDIAN_APPLE,
+                ItemModelUtils.plainModel(
+                        ModelTemplates.FLAT_ITEM.create(
+                                ModelLocationUtils.getModelLocation(ModItems.REINFORCED_OBSIDIAN_APPLE),
+                                TextureMapping.layer0(ModItems.OBSIDIAN_APPLE),
+                                itemModelGenerators.modelOutput
+                        )
+                )
+        );
     }
 }

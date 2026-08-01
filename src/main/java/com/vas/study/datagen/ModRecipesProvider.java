@@ -40,6 +40,7 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                         .define('#', ModItems.OBSIDIAN_INGOT)
                         .define('*', Items.APPLE)
                         .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
+                        .unlockedBy("has_apple", has(Items.APPLE))
                         .save(output);
 //                simpleCookingRecipe("smelting", CampfireCookingRecipe::new, 200, Items.OBSIDIAN, ModItems.OBSIDIAN_INGOT, 1.0f);
                 twoByTwoPacker(RecipeCategory.MISC, ModBlocks.OBSIDIAN_BLOCK, ModItems.OBSIDIAN_INGOT);
@@ -48,6 +49,15 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                         .unlockedBy("has_obsidian_block", has(ModBlocks.OBSIDIAN_BLOCK))
                         .save(output);
 //                nineBlockStorageRecipes(RecipeCategory.MISC, ModBlocks.OBSIDIAN_BLOCK, RecipeCategory.MISC, ModItems.OBSIDIAN_INGOT);
+                shaped(RecipeCategory.FOOD, ModItems.REINFORCED_OBSIDIAN_APPLE, 1)
+                        .pattern("###")
+                        .pattern("#*#")
+                        .pattern("###")
+                        .define('#', ModBlocks.OBSIDIAN_BLOCK)
+                        .define('*', ModItems.OBSIDIAN_APPLE)
+                        .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
+                        .unlockedBy("has_obsidian_apple", has(ModItems.OBSIDIAN_APPLE))
+                        .save(output);
             }
         };
     }

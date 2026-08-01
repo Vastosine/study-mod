@@ -21,5 +21,6 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.OBSIDIAN_APPLE, "Obsidian Apple");
         translationBuilder.add("itemGroup.study", "Study");
         translationBuilder.add(ModBlocks.OBSIDIAN_BLOCK, "Obsidian Block");
+        translationBuilder.add(ModItems.REINFORCED_OBSIDIAN_APPLE, "Reinforced Obsidian Apple");
     }
 }
