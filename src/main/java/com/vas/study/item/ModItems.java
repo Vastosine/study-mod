@@ -18,7 +18,10 @@ public class ModItems {
     public static final Logger LOGGER = MyStudyMod.LOGGER;
     public static final Item STUDY_ITEM = regitsterItem("study_item");
     public static final Item OBSIDIAN_INGOT = regitsterItem("obsidian_ingot");
-    public static final Item OBSIDIAN_APPLE = regitsterItem("obsidian_apple", new Item.Properties().food(ModFoods.OBSIDIAN_APPLE, ModConsumables.OBSIDIAN_APPLE));
+
+    public static final Item OBSIDIAN_APPLE = regitsterItem(
+            "obsidian_apple",
+            new Item.Properties().food(ModFoods.OBSIDIAN_APPLE, ModConsumables.OBSIDIAN_APPLE));
     public static final Item REINFORCED_OBSIDIAN_APPLE = regitsterItem(
             "reinforced_obsidian_apple",
             new Item.Properties()

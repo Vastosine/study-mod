@@ -15,5 +15,6 @@ public class ModBlockLootTablesProvider extends FabricBlockLootSubProvider {
     @Override
     public void generate() {
         dropSelf(ModBlocks.OBSIDIAN_BLOCK);
+        dropSelf(ModBlocks.REINFORCED_OBSIDIAN);
     }
 }

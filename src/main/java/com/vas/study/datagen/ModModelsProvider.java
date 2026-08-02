@@ -6,10 +6,7 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.*;
 
 public class ModModelsProvider extends FabricModelProvider {
     public ModModelsProvider(FabricPackOutput output) {
@@ -19,6 +16,7 @@ public class ModModelsProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
         blockModelGenerators.createTrivialCube(ModBlocks.OBSIDIAN_BLOCK);
+        blockModelGenerators.createTrivialBlock(ModBlocks.REINFORCED_OBSIDIAN, TexturedModel.CUBE_TOP_BOTTOM);
     }
 
     @Override

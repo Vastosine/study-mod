@@ -58,6 +58,15 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                         .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
                         .unlockedBy("has_obsidian_apple", has(ModItems.OBSIDIAN_APPLE))
                         .save(output);
+                shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_OBSIDIAN, 1)
+                        .pattern("###")
+                        .pattern("#*#")
+                        .pattern("###")
+                        .define('#', ModBlocks.OBSIDIAN_BLOCK)
+                        .define('*', Items.OBSIDIAN)
+                        .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
+                        .unlockedBy("has_obsidian_apple", has(Items.OBSIDIAN))
+                        .save(output);
             }
         };
     }
