@@ -2,12 +2,14 @@ package com.vas.study.datagen;
 
 import com.vas.study.block.ModBlocks;
 import com.vas.study.item.ModItems;
+import com.vas.study.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.level.ItemLike;
@@ -63,9 +65,18 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                         .pattern("#*#")
                         .pattern("###")
                         .define('#', ModBlocks.OBSIDIAN_BLOCK)
-                        .define('*', Items.OBSIDIAN)
+                        .define('*', ModItemTags.OBSIDIAN_ITEMS)
                         .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
-                        .unlockedBy("has_obsidian_apple", has(Items.OBSIDIAN))
+                        .unlockedBy("has_obsidian", has(ModItemTags.OBSIDIAN_ITEMS))
+                        .save(output);
+                shaped(RecipeCategory.MISC, ModItems.OBSIDIAN_COAL, 8)
+                        .pattern("###")
+                        .pattern("#*#")
+                        .pattern("###")
+                        .define('#', ItemTags.COALS)
+                        .define('*', ModItems.OBSIDIAN_INGOT)
+                        .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
+                        .unlockedBy("has_coal", has(ItemTags.COALS))
                         .save(output);
             }
         };

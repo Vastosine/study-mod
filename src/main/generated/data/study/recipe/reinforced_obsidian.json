@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": "study:obsidian_block",
-    "*": "minecraft:obsidian"
+    "*": "#study:obsidian_items"
   },
   "pattern": [
     "###",

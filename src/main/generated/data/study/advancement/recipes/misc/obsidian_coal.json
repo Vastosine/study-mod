@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_obsidian": {
+    "has_coal": {
       "conditions": {
         "items": [
           {
-            "items": "#study:obsidian_items"
+            "items": "#minecraft:coals"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "study:reinforced_obsidian"
+        "recipe": "study:obsidian_coal"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -32,12 +32,12 @@
     [
       "has_the_recipe",
       "has_obsidian_ingot",
-      "has_obsidian"
+      "has_coal"
     ]
   ],
   "rewards": {
     "recipes": [
-      "study:reinforced_obsidian"
+      "study:obsidian_coal"
     ]
   }
 }

@@ -2,7 +2,9 @@
   "block.study.obsidian_block": "Obsidian Block",
   "block.study.reinforced_obsidian": "Reinforced Obsidian",
   "item.study.obsidian_apple": "Obsidian Apple",
+  "item.study.obsidian_coal": "Obsidian Coal",
   "item.study.obsidian_ingot": "Obsidian Ingot",
+  "item.study.prospector": "Prospector",
   "item.study.reinforced_obsidian_apple": "Reinforced Obsidian Apple",
   "item.study.study_item": "Study Item",
   "itemGroup.study": "Study"

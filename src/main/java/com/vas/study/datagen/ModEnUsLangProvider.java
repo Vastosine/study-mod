@@ -16,12 +16,16 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(HolderLookup.@NonNull Provider registryLookup, TranslationBuilder translationBuilder) {
+        // Items
         translationBuilder.add(ModItems.STUDY_ITEM, "Study Item");
         translationBuilder.add(ModItems.OBSIDIAN_INGOT, "Obsidian Ingot");
         translationBuilder.add(ModItems.OBSIDIAN_APPLE, "Obsidian Apple");
         translationBuilder.add("itemGroup.study", "Study");
-        translationBuilder.add(ModBlocks.OBSIDIAN_BLOCK, "Obsidian Block");
         translationBuilder.add(ModItems.REINFORCED_OBSIDIAN_APPLE, "Reinforced Obsidian Apple");
+        translationBuilder.add(ModItems.OBSIDIAN_COAL, "Obsidian Coal");
+        translationBuilder.add(ModItems.PROSPECTOR, "Prospector");
+        // Blocks
+        translationBuilder.add(ModBlocks.OBSIDIAN_BLOCK, "Obsidian Block");
         translationBuilder.add(ModBlocks.REINFORCED_OBSIDIAN, "Reinforced Obsidian");
     }
 }
