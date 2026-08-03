@@ -48,6 +48,9 @@ public class Prospector extends Item {
                 if (player != null) {
                     context.getItemInHand().hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
                 }
+                if (player != null) {
+                    context.getItemInHand().hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+                }
                 if (isCorrectBlock(level.getBlockState(pos))) {
                     sendMessage(context, "Found " + level.getBlockState(pos).getBlock().getName().getString() + " with distance of " + distance);
                     return super.useOn(context);
