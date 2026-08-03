@@ -1,6 +1,8 @@
 package com.vas.study.item;
 
 import com.vas.study.MyStudyMod;
+import com.vas.study.item.custom.Prospector;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,20 +18,17 @@ import java.util.function.Function;
 public class ModItems {
     public static final String MOD_ID = MyStudyMod.MOD_ID;
     public static final Logger LOGGER = MyStudyMod.LOGGER;
-    public static final Item STUDY_ITEM = regitsterItem("study_item");
-    public static final Item OBSIDIAN_INGOT = regitsterItem("obsidian_ingot");
+    public static final Item STUDY_ITEM = register("study_item");
+    public static final Item OBSIDIAN_INGOT = register("obsidian_ingot");
 
-    public static final Item OBSIDIAN_APPLE = regitsterItem(
-            "obsidian_apple",
-            new Item.Properties().food(ModFoods.OBSIDIAN_APPLE, ModConsumables.OBSIDIAN_APPLE));
-    public static final Item REINFORCED_OBSIDIAN_APPLE = regitsterItem(
-            "reinforced_obsidian_apple",
-            new Item.Properties()
-                    .food(ModFoods.REINFORCED_OBSIDIAN_APPLE, ModConsumables.REINFORCED_OBSIDIAN_APPLE)
-                    .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
-    );
+    public static final Item OBSIDIAN_APPLE = register("obsidian_apple", new Item.Properties().food(ModFoods.OBSIDIAN_APPLE, ModConsumables.OBSIDIAN_APPLE));
+    public static final Item REINFORCED_OBSIDIAN_APPLE = register("reinforced_obsidian_apple", new Item.Properties().food(ModFoods.REINFORCED_OBSIDIAN_APPLE, ModConsumables.REINFORCED_OBSIDIAN_APPLE).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true));
 
-    private static Item registerItem(final String name, final Function<Item.Properties, Item> itemFactory, final Item.Properties properties) {
+    public static final Item OBSIDIAN_COAL = register("obsidian_coal");
+
+    public static final Item PROSPECTOR = register("prospector", Prospector::new, new Item.Properties().durability(65536 * 256));
+
+    private static Item register(final String name, final Function<Item.Properties, Item> itemFactory, final Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, MyStudyMod.withMODID(name));
         Item item = itemFactory.apply(properties.setId(key));
         if (item instanceof BlockItem blockItem) {
@@ -38,19 +37,23 @@ public class ModItems {
         return Registry.register(BuiltInRegistries.ITEM, key, item);
     }
 
-    private static Item registerItem(final String name, final Function<Item.Properties, Item> itemFactory) {
-        return registerItem(name, itemFactory, new Item.Properties());
+    private static Item register(final String name, final Function<Item.Properties, Item> itemFactory) {
+        return register(name, itemFactory, new Item.Properties());
     }
 
-    private static Item regitsterItem(final String name) {
-        return registerItem(name, Item::new);
+    private static Item register(final String name) {
+        return register(name, Item::new);
     }
 
-    private static Item regitsterItem(final String name, final Item.Properties properties) {
-        return registerItem(name, Item::new, properties);
+    private static Item register(final String name, final Item.Properties properties) {
+        return register(name, Item::new, properties);
     }
 
     public static void onInitialize() {
         LOGGER.info("Items has been registered for " + MOD_ID);
+        FuelValueEvents.BUILD.register(
+                (builder, context) -> builder
+                        .add(ModItems.OBSIDIAN_COAL, 2000)
+        );
     }
 }

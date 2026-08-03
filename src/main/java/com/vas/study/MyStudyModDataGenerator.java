@@ -13,5 +13,6 @@ public class MyStudyModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipesProvider::new);
 		pack.addProvider(ModBlockTagsProvider::new);
 		pack.addProvider(ModBlockLootTablesProvider::new);
+		pack.addProvider(ModItemTagsProvider::new);
 	}
 }

@@ -34,5 +34,7 @@ public class ModModelsProvider extends FabricModelProvider {
                         )
                 )
         );
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_COAL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PROSPECTOR, ModelTemplates.FLAT_ITEM);
     }
 }

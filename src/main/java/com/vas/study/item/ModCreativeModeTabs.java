@@ -25,8 +25,11 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.STUDY_ITEM);
                 output.accept(ModItems.OBSIDIAN_INGOT);
                 output.accept(ModItems.OBSIDIAN_APPLE);
-                output.accept(ModBlocks.OBSIDIAN_BLOCK);
                 output.accept(ModItems.REINFORCED_OBSIDIAN_APPLE);
+                output.accept(ModItems.OBSIDIAN_COAL);
+                output.accept(ModItems.PROSPECTOR);
+
+                output.accept(ModBlocks.OBSIDIAN_BLOCK);
                 output.accept(ModBlocks.REINFORCED_OBSIDIAN);
             }).build();
 
