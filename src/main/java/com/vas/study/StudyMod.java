@@ -1,5 +1,6 @@
 package com.vas.study;
 
+import com.vas.study.item.ModCreativeModeTab;
 import com.vas.study.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -24,6 +25,7 @@ public class StudyMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		ModItems.onInitialize();
+		ModCreativeModeTab.onInitialize();
 	}
 
 	public static ResourceLocation id(String path) {

@@ -15,5 +15,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModItems.STUDY_ITEM, "Study Item");
+        translationBuilder.add(ModItems.TEST_ITEM, "Test Item");
+
+        translationBuilder.add("itemGroup.study", "Study");
     }
 }

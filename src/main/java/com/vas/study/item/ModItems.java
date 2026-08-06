@@ -10,6 +10,7 @@ import java.util.function.Function;
 
 public class ModItems {
     public static final Item STUDY_ITEM = registerItem("study_item");
+    public static final Item TEST_ITEM = registerItem("test_item");
 
     public static Item registerItem(final String name, Function<Item.Properties, Item> function, Item.Properties properties) {
         ResourceKey<Item> resourceKey = ResourceKey.create(BuiltInRegistries.ITEM.key(), StudyMod.id(name));

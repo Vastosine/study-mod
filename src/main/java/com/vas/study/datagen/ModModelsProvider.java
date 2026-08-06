@@ -20,6 +20,6 @@ public class ModModelsProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
         itemModelGenerator.generateFlatItem(ModItems.STUDY_ITEM, ModelTemplates.FLAT_ITEM);
-
+        itemModelGenerator.declareCustomModelItem(ModItems.TEST_ITEM);
     }
 }

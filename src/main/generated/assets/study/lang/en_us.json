@@ -1,3 +1,5 @@
 {
-  "item.study.study_item": "Study Item"
+  "item.study.study_item": "Study Item",
+  "item.study.test_item": "Test Item",
+  "itemGroup.study": "Study"
 }
