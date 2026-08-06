@@ -1,5 +1,6 @@
 package com.vas.study;
 
+import com.vas.study.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.ResourceLocation;
@@ -22,6 +23,7 @@ public class StudyMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+		ModItems.onInitialize();
 	}
 
 	public static ResourceLocation id(String path) {
