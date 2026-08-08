@@ -37,13 +37,9 @@ public class Prospector extends Item {
             sendMessage(context, "Prospecting for ores...");
             Queue<BlockPos> queue = new java.util.LinkedList<>();
             queue.offer(blockPos);
-//            int dis = 0;
             while (!queue.isEmpty()) {
                 BlockPos pos = queue.poll();
-//                queue.poll();
                 int distance = blockPos.distManhattan(pos);
-//                if (distance < dis) continue;
-//                if (distance > dis) dis = distance;
                 if (distance > PROSPECT_RANGE) break;
                 if (player != null) {
                     context.getItemInHand().hurtAndBreak(1, player, EquipmentSlot.MAINHAND);

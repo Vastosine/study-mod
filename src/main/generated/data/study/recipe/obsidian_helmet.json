@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "study:obsidian_ingot"
+  },
+  "pattern": [
+    "###",
+    "# #"
+  ],
+  "result": {
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:fire_protection": 2
+      }
+    },
+    "id": "study:obsidian_helmet"
+  }
+}

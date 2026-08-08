@@ -1,0 +1,29 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "study:obsidian"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "study:obsidian"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "study:obsidian"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "study:obsidian"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "study:obsidian"
+      }
+    ]
+  }
+}

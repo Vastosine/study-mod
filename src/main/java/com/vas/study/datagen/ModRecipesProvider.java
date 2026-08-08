@@ -1,21 +1,35 @@
 package com.vas.study.datagen;
 
+import com.vas.study.MyStudyMod;
 import com.vas.study.block.ModBlocks;
 import com.vas.study.item.ModItems;
 import com.vas.study.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipesProvider extends FabricRecipeProvider {
@@ -78,6 +92,44 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                         .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
                         .unlockedBy("has_coal", has(ItemTags.COALS))
                         .save(output);
+                // Obsidian Armor — crafted pieces come with Fire Protection I
+                var fireProtection = registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_PROTECTION);
+                obsidianArmorShaped("obsidian_helmet", fireProtection, ModItems.OBSIDIAN_HELMET, "###", "# #");
+                obsidianArmorShaped("obsidian_chestplate", fireProtection, ModItems.OBSIDIAN_CHESTPLATE, "# #", "###", "###");
+                obsidianArmorShaped("obsidian_leggings", fireProtection, ModItems.OBSIDIAN_LEGGINGS, "###", "# #", "# #");
+                obsidianArmorShaped("obsidian_boots", fireProtection, ModItems.OBSIDIAN_BOOTS, "# #", "# #");
+            }
+
+            /** Builds a shaped recipe whose result carries the given enchantment (e.g. Fire Protection I). */
+            private void obsidianArmorShaped(String name, net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> enchantment, ItemLike result, String... pattern) {
+                // Build the enchantment component directly — `new ItemStack(result)` is not usable here
+                // because item components are not bound yet during datagen.
+                ItemEnchantments.Mutable enchantments = new ItemEnchantments.Mutable(ItemEnchantments.EMPTY);
+                enchantments.set(enchantment, 2);
+                ItemStackTemplate template = new ItemStackTemplate(result.asItem(),
+                        DataComponentPatch.builder()
+                                .set(DataComponents.ENCHANTMENTS, enchantments.toImmutable())
+                                .build());
+
+                ShapedRecipePattern shapedPattern = ShapedRecipePattern.of(
+                        Map.of('#', Ingredient.of(ModItems.OBSIDIAN_INGOT)),
+                        List.of(pattern)
+                );
+
+                ResourceKey<net.minecraft.world.item.crafting.Recipe<?>> key =
+                        ResourceKey.create(Registries.RECIPE, MyStudyMod.withMODID(name));
+
+                RecipeUnlockAdvancementBuilder advancementBuilder = new RecipeUnlockAdvancementBuilder();
+                advancementBuilder.unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT));
+
+                ShapedRecipe recipe = new ShapedRecipe(
+                        RecipeBuilder.createCraftingCommonInfo(true),
+                        RecipeBuilder.createCraftingBookInfo(RecipeCategory.COMBAT, ""),
+                        shapedPattern,
+                        template
+                );
+
+                output.accept(key, recipe, advancementBuilder.build(output, key, RecipeCategory.COMBAT));
             }
         };
     }
