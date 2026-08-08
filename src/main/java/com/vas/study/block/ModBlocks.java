@@ -18,6 +18,7 @@ public class ModBlocks {
     public static final Logger LOGGER = MyStudyMod.LOGGER;
     public static final Block OBSIDIAN_BLOCK = register("obsidian_block", BlockBehaviour.Properties.of().strength(10.0f, 1200.0f).requiresCorrectToolForDrops());
     public static final Block REINFORCED_OBSIDIAN = register("reinforced_obsidian", BlockBehaviour.Properties.of().strength(100.0f, 2400.0f).requiresCorrectToolForDrops());
+    public static final Block ALLOY_FURNACE = register("alloy_furnace", AlloyFurnaceBlock::new, BlockBehaviour.Properties.of().strength(6.0f, 6.0f).requiresCorrectToolForDrops());
 
     public static Block register(final String name, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties, boolean shouldRegisterItem) {
         ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, MyStudyMod.withMODID(name));

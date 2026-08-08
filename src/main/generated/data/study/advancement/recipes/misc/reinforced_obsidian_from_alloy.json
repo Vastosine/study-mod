@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "study:reinforced_obsidian_from_alloy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unlock_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "study:obsidian_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_unlock_item"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "study:reinforced_obsidian_from_alloy"
+    ]
+  }
+}

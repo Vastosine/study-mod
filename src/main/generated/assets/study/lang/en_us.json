@@ -1,6 +1,9 @@
 {
+  "block.study.alloy_furnace": "Alloy Furnace",
   "block.study.obsidian_block": "Obsidian Block",
   "block.study.reinforced_obsidian": "Reinforced Obsidian",
+  "container.alloy_furnace": "Alloy Furnace",
+  "item.study.obsidian_alloy_ingot": "Obsidian Alloy Ingot",
   "item.study.obsidian_apple": "Obsidian Apple",
   "item.study.obsidian_boots": "Obsidian Boots",
   "item.study.obsidian_chestplate": "Obsidian Chestplate",
@@ -10,6 +13,7 @@
   "item.study.obsidian_leggings": "Obsidian Leggings",
   "item.study.prospector": "Prospector",
   "item.study.reinforced_obsidian_apple": "Reinforced Obsidian Apple",
+  "item.study.rose_gold_ingot": "Rose Gold Ingot",
   "item.study.study_item": "Study Item",
   "itemGroup.study": "Study"
 }

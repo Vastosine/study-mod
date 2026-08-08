@@ -17,6 +17,7 @@ public class ModModelsProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
         blockModelGenerators.createTrivialCube(ModBlocks.OBSIDIAN_BLOCK);
         blockModelGenerators.createTrivialBlock(ModBlocks.REINFORCED_OBSIDIAN, TexturedModel.CUBE_TOP_BOTTOM);
+        blockModelGenerators.createFurnace(ModBlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE_ONLY_TOP);
     }
 
     @Override
@@ -35,6 +36,8 @@ public class ModModelsProvider extends FabricModelProvider {
                 )
         );
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_COAL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_ALLOY_INGOT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ROSE_GOLD_INGOT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.PROSPECTOR, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_HELMET, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_CHESTPLATE, ModelTemplates.FLAT_ITEM);

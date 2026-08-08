@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:furnace",
+    "I": "minecraft:iron_ingot",
+    "O": "study:obsidian_ingot"
+  },
+  "pattern": [
+    "OIO",
+    "O#O",
+    "OOO"
+  ],
+  "result": {
+    "id": "study:alloy_furnace"
+  }
+}

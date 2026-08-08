@@ -19,5 +19,16 @@ public class ModItemTagsProvider extends FabricTagsProvider.ItemTagsProvider {
         valueLookupBuilder(ModItemTags.OBSIDIAN_ITEMS)
                 .add(Items.OBSIDIAN)
                 .add(Items.CRYING_OBSIDIAN);
+        valueLookupBuilder(ModItemTags.GOLD_MATERIALS)
+                .add(Items.GOLD_INGOT)
+                .add(Items.GOLD_ORE)
+                .add(Items.DEEPSLATE_GOLD_ORE)
+                .add(Items.NETHER_GOLD_ORE)
+                .add(Items.RAW_GOLD);
+        valueLookupBuilder(ModItemTags.COPPER_MATERIALS)
+                .add(Items.COPPER_INGOT)
+                .add(Items.COPPER_ORE)
+                .add(Items.DEEPSLATE_COPPER_ORE)
+                .add(Items.RAW_COPPER);
     }
 }

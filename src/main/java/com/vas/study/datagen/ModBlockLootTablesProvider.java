@@ -16,5 +16,6 @@ public class ModBlockLootTablesProvider extends FabricBlockLootSubProvider {
     public void generate() {
         dropSelf(ModBlocks.OBSIDIAN_BLOCK);
         dropSelf(ModBlocks.REINFORCED_OBSIDIAN);
+        dropSelf(ModBlocks.ALLOY_FURNACE);
     }
 }

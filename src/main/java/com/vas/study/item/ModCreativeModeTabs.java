@@ -29,6 +29,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.OBSIDIAN_APPLE);
                 output.accept(ModItems.REINFORCED_OBSIDIAN_APPLE);
                 output.accept(ModItems.OBSIDIAN_COAL);
+                output.accept(ModItems.OBSIDIAN_ALLOY_INGOT);
+                output.accept(ModItems.ROSE_GOLD_INGOT);
                 output.accept(ModItems.PROSPECTOR);
 
                 // Obsidian Armor — comes with Fire Protection I (vanilla-style, resolved at display time)
@@ -49,6 +51,7 @@ public class ModCreativeModeTabs {
 
                 output.accept(ModBlocks.OBSIDIAN_BLOCK);
                 output.accept(ModBlocks.REINFORCED_OBSIDIAN);
+                output.accept(ModBlocks.ALLOY_FURNACE);
             }).build();
 
     public static void onInitialize() {

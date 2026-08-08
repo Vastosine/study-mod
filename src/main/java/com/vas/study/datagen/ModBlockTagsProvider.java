@@ -19,10 +19,12 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
     protected void addTags(HolderLookup.@NonNull Provider registries) {
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.OBSIDIAN_BLOCK)
-                .add(ModBlocks.REINFORCED_OBSIDIAN);
+                .add(ModBlocks.REINFORCED_OBSIDIAN)
+                .add(ModBlocks.ALLOY_FURNACE);
         valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.OBSIDIAN_BLOCK)
-                .add(ModBlocks.REINFORCED_OBSIDIAN);
+                .add(ModBlocks.REINFORCED_OBSIDIAN)
+                .add(ModBlocks.ALLOY_FURNACE);
 
         valueLookupBuilder(ModBlockTags.ORE_TO_PROSPECT)
                 .forceAddTag(BlockTags.COAL_ORES)

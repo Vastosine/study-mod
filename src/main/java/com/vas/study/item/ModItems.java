@@ -27,6 +27,8 @@ public class ModItems {
     public static final Item REINFORCED_OBSIDIAN_APPLE = register("reinforced_obsidian_apple", new Item.Properties().food(ModFoods.REINFORCED_OBSIDIAN_APPLE, ModConsumables.REINFORCED_OBSIDIAN_APPLE).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true));
 
     public static final Item OBSIDIAN_COAL = register("obsidian_coal");
+    public static final Item OBSIDIAN_ALLOY_INGOT = register("obsidian_alloy_ingot");
+    public static final Item ROSE_GOLD_INGOT = register("rose_gold_ingot");
 
     public static final Item PROSPECTOR = register("prospector", Prospector::new, new Item.Properties().durability(65536 * 256));
 

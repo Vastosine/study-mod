@@ -23,6 +23,8 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add("itemGroup.study", "Study");
         translationBuilder.add(ModItems.REINFORCED_OBSIDIAN_APPLE, "Reinforced Obsidian Apple");
         translationBuilder.add(ModItems.OBSIDIAN_COAL, "Obsidian Coal");
+        translationBuilder.add(ModItems.OBSIDIAN_ALLOY_INGOT, "Obsidian Alloy Ingot");
+        translationBuilder.add(ModItems.ROSE_GOLD_INGOT, "Rose Gold Ingot");
         translationBuilder.add(ModItems.PROSPECTOR, "Prospector");
         // Armor
         translationBuilder.add(ModItems.OBSIDIAN_HELMET, "Obsidian Helmet");
@@ -32,5 +34,7 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         // Blocks
         translationBuilder.add(ModBlocks.OBSIDIAN_BLOCK, "Obsidian Block");
         translationBuilder.add(ModBlocks.REINFORCED_OBSIDIAN, "Reinforced Obsidian");
+        translationBuilder.add(ModBlocks.ALLOY_FURNACE, "Alloy Furnace");
+        translationBuilder.add("container.alloy_furnace", "Alloy Furnace");
     }
 }

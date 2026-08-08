@@ -1,8 +1,12 @@
 package com.vas.study;
 
 import com.vas.study.block.ModBlocks;
+import com.vas.study.block.entity.ModBlockEntities;
 import com.vas.study.item.ModCreativeModeTabs;
 import com.vas.study.item.ModItems;
+import com.vas.study.menu.ModMenuTypes;
+import com.vas.study.recipe.ModRecipeSerializers;
+import com.vas.study.recipe.ModRecipeTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.Identifier;
@@ -29,6 +33,10 @@ public class MyStudyMod implements ModInitializer {
 		ModItems.onInitialize();
 		ModCreativeModeTabs.onInitialize();
 		ModBlocks.onInitialize();
+		ModBlockEntities.onInitialize();
+		ModMenuTypes.onInitialize();
+		ModRecipeTypes.onInitialize();
+		ModRecipeSerializers.onInitialize();
 	}
 
 	public static Identifier withMODID(final String name) {

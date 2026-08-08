@@ -3,6 +3,7 @@ package com.vas.study.datagen;
 import com.vas.study.MyStudyMod;
 import com.vas.study.block.ModBlocks;
 import com.vas.study.item.ModItems;
+import com.vas.study.recipe.AlloyFurnaceRecipe;
 import com.vas.study.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -22,6 +23,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeBookCategories;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -98,6 +101,61 @@ public class ModRecipesProvider extends FabricRecipeProvider {
                 obsidianArmorShaped("obsidian_chestplate", fireProtection, ModItems.OBSIDIAN_CHESTPLATE, "# #", "###", "###");
                 obsidianArmorShaped("obsidian_leggings", fireProtection, ModItems.OBSIDIAN_LEGGINGS, "###", "# #", "# #");
                 obsidianArmorShaped("obsidian_boots", fireProtection, ModItems.OBSIDIAN_BOOTS, "# #", "# #");
+                // Alloy Furnace — the machine itself
+                shaped(RecipeCategory.DECORATIONS, ModBlocks.ALLOY_FURNACE, 1)
+                        .pattern("OIO")
+                        .pattern("O#O")
+                        .pattern("OOO")
+                        .define('O', ModItems.OBSIDIAN_INGOT)
+                        .define('I', Items.IRON_INGOT)
+                        .define('#', Items.FURNACE)
+                        .unlockedBy("has_obsidian_ingot", has(ModItems.OBSIDIAN_INGOT))
+                        .unlockedBy("has_furnace", has(Items.FURNACE))
+                        .save(output);
+                // Alloy Furnace recipes (order-sensitive: slot 0, 1, 2; per-slot consume counts)
+                alloyFurnaceRecipe("obsidian_alloy_ingot", ModItems.OBSIDIAN_INGOT, ModItems.OBSIDIAN_ALLOY_INGOT,
+                        2, 2.0F, 300, null, List.of(
+                                Ingredient.of(ModItems.OBSIDIAN_INGOT),
+                                Ingredient.of(Items.IRON_INGOT),
+                                Ingredient.of(Items.GOLD_INGOT)));
+                alloyFurnaceRecipe("reinforced_obsidian_from_alloy", ModBlocks.OBSIDIAN_BLOCK, ModBlocks.REINFORCED_OBSIDIAN,
+                        1, 5.0F, 600, null, List.of(
+                                Ingredient.of(ModBlocks.OBSIDIAN_BLOCK),
+                                Ingredient.of(Items.IRON_INGOT),
+                                Ingredient.of(Items.GOLD_INGOT)));
+                // Rose gold: 3 gold + 1 copper -> 4 rose gold ingots.
+                // Matching is order-insensitive, so the gold may sit in one slot (x3) or be
+                // spread across two (x2 + x1); any slot arrangement works. Gold and copper may
+                // also be smelted individually, so the alloy check runs before the smelting fallback.
+                // The material lists live in item tags (ingots, ores, raw ores) so adding a new
+                // gold or copper source is a tag edit, not a recipe edit.
+                alloyFurnaceRecipe("rose_gold_ingot", Items.GOLD_INGOT, ModItems.ROSE_GOLD_INGOT,
+                        4, 1.5F, 200, List.of(3, 1), List.of(
+                                Ingredient.of(registries.lookupOrThrow(Registries.ITEM).getOrThrow(ModItemTags.GOLD_MATERIALS)),
+                                Ingredient.of(registries.lookupOrThrow(Registries.ITEM).getOrThrow(ModItemTags.COPPER_MATERIALS))));
+            }
+
+            /**
+             * Builds an Alloy Furnace recipe with order-insensitive ingredients and its advancement.
+             * {@code consumes} holds how many items each ingredient needs (null = one each);
+             * it must line up with {@code ingredients}.
+             */
+            private void alloyFurnaceRecipe(String name, ItemLike unlockItem, ItemLike result, int count, float experience, int cookingTime, List<Integer> consumes, List<Ingredient> ingredients) {
+                ItemStackTemplate template = new ItemStackTemplate(result.asItem(), count);
+                AlloyFurnaceRecipe recipe = new AlloyFurnaceRecipe(
+                        new net.minecraft.world.item.crafting.Recipe.CommonInfo(true),
+                        new AlloyFurnaceRecipe.AlloyBookInfo(RecipeBookCategories.CRAFTING_MISC, ""),
+                        ingredients,
+                        consumes != null ? consumes : List.of(),
+                        template,
+                        experience,
+                        cookingTime
+                );
+
+                ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, MyStudyMod.withMODID(name));
+                RecipeUnlockAdvancementBuilder advancementBuilder = new RecipeUnlockAdvancementBuilder();
+                advancementBuilder.unlockedBy("has_unlock_item", has(unlockItem));
+                output.accept(key, recipe, advancementBuilder.build(output, key, RecipeCategory.MISC));
             }
 
             /** Builds a shaped recipe whose result carries the given enchantment (e.g. Fire Protection I). */
