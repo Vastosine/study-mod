@@ -36,5 +36,9 @@ public class ModModelsProvider extends FabricModelProvider {
         );
         itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_COAL, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.PROSPECTOR, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_HELMET, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_LEGGINGS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OBSIDIAN_BOOTS, ModelTemplates.FLAT_ITEM);
     }
 }

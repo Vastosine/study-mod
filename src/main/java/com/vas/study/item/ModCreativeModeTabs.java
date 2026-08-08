@@ -29,6 +29,11 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.OBSIDIAN_COAL);
                 output.accept(ModItems.PROSPECTOR);
 
+                output.accept(ModItems.OBSIDIAN_HELMET);
+                output.accept(ModItems.OBSIDIAN_CHESTPLATE);
+                output.accept(ModItems.OBSIDIAN_LEGGINGS);
+                output.accept(ModItems.OBSIDIAN_BOOTS);
+
                 output.accept(ModBlocks.OBSIDIAN_BLOCK);
                 output.accept(ModBlocks.REINFORCED_OBSIDIAN);
             }).build();

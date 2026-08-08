@@ -24,6 +24,11 @@ public class ModEnUsLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.REINFORCED_OBSIDIAN_APPLE, "Reinforced Obsidian Apple");
         translationBuilder.add(ModItems.OBSIDIAN_COAL, "Obsidian Coal");
         translationBuilder.add(ModItems.PROSPECTOR, "Prospector");
+        // Armor
+        translationBuilder.add(ModItems.OBSIDIAN_HELMET, "Obsidian Helmet");
+        translationBuilder.add(ModItems.OBSIDIAN_CHESTPLATE, "Obsidian Chestplate");
+        translationBuilder.add(ModItems.OBSIDIAN_LEGGINGS, "Obsidian Leggings");
+        translationBuilder.add(ModItems.OBSIDIAN_BOOTS, "Obsidian Boots");
         // Blocks
         translationBuilder.add(ModBlocks.OBSIDIAN_BLOCK, "Obsidian Block");
         translationBuilder.add(ModBlocks.REINFORCED_OBSIDIAN, "Reinforced Obsidian");
